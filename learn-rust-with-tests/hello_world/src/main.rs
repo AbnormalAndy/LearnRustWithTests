@@ -1,5 +1,5 @@
 fn main() {
-    println!("{}", hello("meow", "SPANISH"));
+    println!("{}", hello("Meow", "SPANISH"));
 }
 
 
