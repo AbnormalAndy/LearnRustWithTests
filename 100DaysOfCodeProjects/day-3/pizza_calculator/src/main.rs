@@ -1,21 +1,72 @@
-fn pizza_calculator(pizza_size: &str, add_pepperoni: bool, add_cheese: bool) -> i32 {
-    let size = pizza_size;
+use std::io;
 
 
+fn pizza_input() -> String {
+    println!("What size pizza do you want? S - M - L");
+    let mut pizza_size = String::new();
+    io::stdin().read_line(&mut pizza_size).unwrap();
+
+
+    match pizza_size.to_lowercase().as_str() {
+        "s\n" => return "small".to_string(),
+        "m\n" => return "medium".to_string(),
+        "l\n" => return "large".to_string(),
+        _ => return "invalid".to_string(),
+    };
+}
+
+
+fn pepperoni_input() -> bool {
+    println!("Do you want pepperoni on your pizza? Y or N");
+    let mut pepperoni = String::new();
+    io::stdin().read_line(&mut pepperoni).unwrap();
+
+
+    if pepperoni.to_lowercase().as_str() == "y\n" {
+        return true
+    } else {
+        return false
+    }
+}
+
+
+fn cheese_input() -> bool {
+    println!("Do you want extra cheese on your pizza? Y or N");
+    let mut cheese = String::new();
+    io::stdin().read_line(&mut cheese).unwrap();
+
+
+    if cheese.to_lowercase().as_str() == "y\n" {
+        return true
+    } else {
+        return false
+    }
+}
+
+
+fn pizza_calculator(pizza_size: String, add_pepperoni: bool, add_cheese: bool) -> i32 {
     let mut total: i32 = 0;
 
 
-    match size {
-        "s" => total += 15,
-        "m" => total += 20,
-        "l" => total += 25,
-        _ => println!("Incorrect input."),
+    // Match case insensitive.
+    // Can to_lower() in input function.
+    println!("{}", pizza_size);
+    match pizza_size.as_str() {
+        "small" => total += 15,
+        "medium" => total += 20,
+        "large" => total += 25,
+        _ => println!("Invalid input."),
     };
     
 
-    if add_pepperoni == true {
+    if add_pepperoni == true && pizza_size == "medium" || add_pepperoni == true && pizza_size == "large" {
         total += 2;
     };
+
+
+    if add_pepperoni == true && pizza_size == "small" {
+        total += 1;
+    }
 
 
     if add_cheese == true {
@@ -27,27 +78,15 @@ fn pizza_calculator(pizza_size: &str, add_pepperoni: bool, add_cheese: bool) -> 
 
 
 fn main() {
-    let size: &str = "m";
-    let pepperoni: bool = true;
-    let cheese: bool = true;
+    let size: String = pizza_input();
+    let pepperoni: bool = pepperoni_input();
+    let cheese: bool = cheese_input();
 
 
     let total: i32 = pizza_calculator(size, pepperoni, cheese);
 
 
-    println!("{}", total);
+    println!("Your total for the pizza is: ${}.00.", total);
 }
 
 
-// TO-DO
-// - Pizza Size
-//     - S = 15; M = 20; L = 25
-// - Pepperoni
-//     - S = +2; M / L = +3
-// - Extra Cheese
-//     - +1
-//
-// - Functions to take input.
-//     - What size pizza do you want? S, M, L
-//     - Do you want pepperoni on your pizza? Y or N
-//     - Do you want extra cheese? Y or N
