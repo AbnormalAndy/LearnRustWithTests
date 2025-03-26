@@ -1,6 +1,7 @@
 use std::io;
 
 
+// Function for size of pizza input.
 fn pizza_input() -> String {
     println!("What size pizza do you want? S - M - L");
     let mut pizza_size = String::new();
@@ -16,6 +17,7 @@ fn pizza_input() -> String {
 }
 
 
+// Function for pepperoni input.
 fn pepperoni_input() -> bool {
     println!("Do you want pepperoni on your pizza? Y or N");
     let mut pepperoni = String::new();
@@ -30,6 +32,7 @@ fn pepperoni_input() -> bool {
 }
 
 
+// Function for cheese input.
 fn cheese_input() -> bool {
     println!("Do you want extra cheese on your pizza? Y or N");
     let mut cheese = String::new();
@@ -44,6 +47,7 @@ fn cheese_input() -> bool {
 }
 
 
+// Function to calculate pizza cost.
 fn pizza_calculator(pizza_size: String, add_pepperoni: bool, add_cheese: bool) -> i32 {
     let mut total: i32 = 0;
 
