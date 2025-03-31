@@ -63,6 +63,7 @@ fn main() {
         
 
         // Need win / lose condition.
+        // Match instead of if/else?
         if decision_number == 99 {
             println!("Invalid input.");
             game_on = false;
