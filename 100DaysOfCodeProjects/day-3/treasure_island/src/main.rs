@@ -122,3 +122,13 @@ fn main() {
 }
 
 
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+
+    #[test]
+    fn test_decision_input() {
+        assert_eq!(decision_string("p\n".to_string()), 9);
+    }
+}
