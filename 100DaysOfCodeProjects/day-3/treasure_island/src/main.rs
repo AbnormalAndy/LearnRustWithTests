@@ -7,6 +7,7 @@ use std::io;
 // - Gives output of number.
 
 
+// Question Decision
 fn decision_input(decision: i32) -> String {
     let mut answer = String::new();
     match decision {
@@ -23,6 +24,7 @@ fn decision_input(decision: i32) -> String {
 }
 
 
+// Decision Choice
 fn decision_string(decision: String) -> i32 {
     // Will return the same string if chosen.
     match decision.to_lowercase().as_str() {
@@ -36,6 +38,7 @@ fn decision_string(decision: String) -> i32 {
 }
 
 
+// Outcome Decision
 fn decision_output(decision: i32) -> String {
     match decision {
         1 => return "Went left down the road.".to_string(),
