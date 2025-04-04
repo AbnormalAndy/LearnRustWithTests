@@ -20,13 +20,16 @@ fn decision_input(decision: i32) -> String {
 
 
         // Default / Error Return
-        _ => println!("Invalid decision input.")
+        _ => println!("Try one of the responses above.")
     }
 
 
     io::stdin().read_line(&mut answer).unwrap();
     return answer
 }
+
+
+// BUG: Any answer can be input in for any question.
 
 
 // Decision Choice
@@ -79,7 +82,7 @@ fn decision_output(decision: i32) -> String {
         13 => return "Restarting game...".to_string(),
 
         // Default / Error Return
-        _ => return "Invalid decision output.".to_string()
+        _ => return "Invalid input.".to_string()
     }
 }
 
@@ -105,8 +108,8 @@ fn main() {
 
 
         if decision_number == 11 {
-            println!("Invalid decision string.");
-            game_on = false;
+            println!("Please try again.");
+            // game_on = false;
         } else if decision_number == 12 {
             game_on = false;
         } else if decision_number == 13 {
