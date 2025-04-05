@@ -36,24 +36,24 @@ fn decision_input(decision: i32) -> String {
 fn decision_string(decision: String) -> i32 {
     match decision.to_lowercase().as_str() {
         // Correct Path Choices
-        "l\n" | "left\n" => return 1,
-        "w\n" | "wait\n" => 2,
+        "left\n" => return 1,
+        "wait\n" => 2,
 
 
         // Game Over Choices
-        "r\n" | "right\n" => return 20,
-        "s\n" | "swim\n" => return 21,
-        "g\n" | "green\n" => return 22,
-        "b\n" | "blue\n" => return 23,
+        "right\n" => return 20,
+        "swim\n" => return 21,
+        "green\n" => return 22,
+        "blue\n" => return 23,
 
 
         // Win Choices
-        "p\n" | "pink\n" => return 9,
+        "pink\n" => return 9,
 
 
         // Continue Game Choices
-        "n\n" | "no\n" => return 12,
-        "y\n" | "yes\n" => return 13,
+        "no\n" => return 12,
+        "yes\n" => return 13,
 
 
         // Default / Error Return 
